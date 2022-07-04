@@ -6,7 +6,9 @@
 
 The Official Documentation for Kumiko
 
-# Building
+<div align=left>
+
+## Building
 
 This doc is built with Docusaurus + TypeScript. 
 
@@ -33,3 +35,8 @@ Buliding for production:
 pnpm run build
 ```
 
+## Thanks
+
+This docs has been hosted on Vercel. Thanks!
+
+![Vercel](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)
