@@ -1,0 +1,35 @@
+<div align=center>
+
+# Kumiko-Docs
+
+![Kumiko](./assets/kumiko-resized.jpg)
+
+The Official Documentation for Kumiko
+
+# Building
+
+This doc is built with Docusaurus + TypeScript. 
+
+Dependencies: 
+
+- Node.js
+- pnpm
+
+Installing dependencies: 
+
+```sh
+cd kumiko-docs && pnpm install
+```
+
+Running the live server:
+
+```sh
+pnpm run start
+```
+
+Buliding for production:
+
+```sh
+pnpm run build
+```
+
