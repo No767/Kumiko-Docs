@@ -339,7 +339,6 @@ Make sure to always keep this in mind: Always add exception handling for Kumiko.
    But rather actually specify the exception that you want to handle.
 
    ```py
-
    try:
       async with aiohttp.ClientSession(json_serialize=ujson.dumps) as session:
          async with session.get(url) as resp:
