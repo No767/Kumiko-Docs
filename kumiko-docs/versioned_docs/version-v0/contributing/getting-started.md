@@ -381,3 +381,27 @@ MongoDB_Server_IP_Dev = "127.0.0.1" # also could use ipv4 address if localhost d
 
 Now connect to the MongoDB server with MongoDBCompass or Mongosh and create a database called `kumiko_marketplace`. There is no need to create any collections, since beanie will create them when needed. 
 
+### RabbitMQ Setup
+
+Kumiko's Economy (specifically the auction house) rely on routed pub/sub connections. RabbitMQ is used instead of Redis due to stability with each queue message and being able to route each queue message to the correct auction house item. The best way to deal with this is to fire up a RabbitMQ Docker container. You'll need to insert in 2 env variables, which are `RABBITMQ_DEFAULT_USER` and `RABBITMQ_DEFAULT_PASS`. The username should be named `Kumiko` while the password should be a password of secure length. Once again, this assumes that you have the `Bot/.env` file already set. Now just insert these env variables into the file:
+
+```
+# Bot/.env
+RabbitMQ_Password_Dev = "password"
+RabbitMQ_Username_Dev = "Kumiko"
+RabbitMQ_Server_IP_Dev = "your ipv4 address"
+RabbitMQ_Port_Dev = "5672"
+```
+By default, this will use the root vhost. But on production, you might want to set the vhost to be something different. Once you start Kumiko, the logger will output a message saying that the RabbitMQ consumer is started.
+
+### Redis Setup
+
+Kumiko's Auction House relies on Redis to temporarily store the uuid, and the bid price of each item. As per usual, Docker is your best friend here. For production, ideally you want to set the passwords, but since this is for development, there are no users or passwords to set. You'll want to add these to your `Bot/.env` file:
+
+```
+# Bot/.env
+Redis_Server_IP_Dev = your ipv4 address
+Redis_Port_Dev = 6379
+```
+
+Once it is set, now you can use Redis as a cache. Kumiko will write the data from Redis to Postgres once every 5 or 30 minutes. This guarantees data validity and persistence while also going really fast in production thanks to Redis as a caching layer.

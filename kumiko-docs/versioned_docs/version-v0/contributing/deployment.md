@@ -23,7 +23,7 @@ It is advised to run this on a Linux server when in production. Deploying Kumiko
 
 ## Deploying on Cloud
 
-It is also possible to deploy Kumiko to the cloud. v0 is currently unsharded, but once Kumiko hits up to 900-1000 servers, then sharding is needed, and a service like Kubernetes or the cloud provider's version of Kubernetes (eg AKS from Azure, etc) is needed. Note that before you deploy Kumiko, make sure to build Kumiko's docker image using the already configured Makefile. Edit the makefile as need be. For standard deployments, run Kumiko as a docker container, and then configure your PostgreSQL, MongoDB, and RabbitMQ clusters. 
+It is also possible to deploy Kumiko to the cloud. v0 is currently unsharded, but once Kumiko hits up to 900-1000 servers, then sharding is needed, and a service like Kubernetes or the cloud provider's version of Kubernetes (eg AKS from Azure, etc) is needed. Note that before you deploy Kumiko, make sure to build Kumiko's docker image using the already configured Makefile. Edit the makefile as need be. For standard deployments, run Kumiko as a docker container, and then configure your PostgreSQL, MongoDB, Redis, and RabbitMQ clusters. 
 
 :::caution
 Make sure to have all of your database credentials already configured within the `.env` file. Once you build the image, you can't change any of the env values.
