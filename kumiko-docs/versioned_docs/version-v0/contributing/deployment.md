@@ -11,14 +11,14 @@ The official version of Kumiko is self hosted on a Docker container, and the res
 
 You'll need Docker Compose installed for this. If you are planning to host this on Windows and/or MacOS, you'll need to install [Docker Desktop](https://www.docker.com/products/docker-desktop/). If you already have Docker Desktop installed, then you should already have Docker compose installed. For Linux users, you'll need [Docker Engine](https://docs.docker.com/engine/) and the [Docker Compose](https://docs.docker.com/compose/install/compose-plugin/) plugin. Refer to the instructions [here](https://docs.docker.com/compose/install/compose-plugin/).
 
-Then you can run `docker compose up` to build Kumiko, and then `docker compose up -d` to start it all up. You can use `docker compose ps` to see the containers running, and then to shut it all down, run `docker compose stop`
+Then you can run `docker compose up -d` to build Kumiko and start all of the databases needed. You can use `docker compose ps` to see the containers running, and then to shut it all down, run `docker compose stop`
 
 :::note
 For WSL users, first install Docker Desktop, and then add your distro of choice into the WSL integration tab in Docker Desktop's settings page. Note that you'll need to run all docker commands with sudo privileges.
 :::
 
 :::caution 
-It is advised to run this on a Linux server when in production. Deploying Kumiko to hosting sites such as PebbleHost will not work.
+It is advised to run this on a Linux server when in production. Deploying Kumiko to hosting sites such as PebbleHost will not work. Cloud hosting sites such as AWS, Azure, GCP, etc will work, but you'll more than likely have to spin up seperate servers and run Kumiko as a docker container. If you are not able to use the Docker Compose system, use the Makefile to build the docker image manually, and push it off to your container registry of choice.
 :::
 
 ## Deploying on Cloud
@@ -34,11 +34,11 @@ Make sure to have all of your database credentials already configured within the
 Discord bots are generally expected to be running 24/7, and are expected to have an uptime of 90-99% when in production. Make sure that the server you are running does not experience issues, or this can cause Kumiko to fail. It is recommended to not stop the bot unless for new updates, or critical downtime issues or server maintenance.
 
 ## Docker-Compose File
-Full docker-compose file [(source)](https://github.com/No767/Kumiko/blob/dev/docker-compose.yml):
+Full docker-compose file [(source)](https://github.com/No767/Kumiko/blob/dev/docker-compose-example.yml):
 
 ```yaml
-# docker-compose.yml
-# This docker compose file is actually not used by Kumiko
+# docker-compose-example.yml
+# This docker compose file is actually not used by Kumiko, since Kumiko relies on the db and other stuff via a seperate server
 # This is just for example
 # MAKE SURE TO CHANGE THE VALUES FOR KUMIKO
 
@@ -106,7 +106,17 @@ services:
       - RABBITMQ_DEFAULT_PASS=password # Chnage this to a secure password
       - RABBITMQ_DEFAULT_VHOST=kumiko
 
+  redis:
+    container_name: Kumiko-Redis-Dev
+    image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_volume:/data
+    command: redis-server --save 60 1 --loglevel warning
+
 volumes:
   postgres_volume:
   mongodb_volume:
+  redis_volume:
 ```
