@@ -60,7 +60,7 @@ If using the standalone method:
     && chmod +x standalone-setup.sh
     ```
 
-3. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens below.
+3. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](./api-keys-and-access-tokens.md).
 
 4. To set up all of the data, all we need to do is to run a script to set that up.
 
@@ -81,28 +81,20 @@ If using the standalone method:
   :::
 ## Docker Compose
 
-1. Clone the repo
+1. Download the `.env` file and `docker-compose.yml` file via the `setup.sh` script
 
-    ```sh
-    git clone https://github.com/No767/Kumiko.git
+    ```bash
+    curl -s https://raw.githubusercontent.com/No767/Kumiko/dev/scripts/setup.sh | sh
     ```
 
-2. Rename the `.env-docker-example` file to `.env` and the `docker-compose-example.yml` to `docker-compose.yml`
+2. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](./api-keys-and-access-tokens.md).
 
-3. Start the Docker Compose up without Kumiko. Just comment out those lines if you are setting up Kumiko for the first time.
+3. Once everything is set, literally just fire up the whole entire docker compose stack. All of the database creation, and seeding of the data will be handled automatically
 
-4. Update the `.env` file with the correct values, and also set the correct passwords and users for Postgres, MongoDB, and RabbitMQ.
-
-5. Log into your PostgreSQL server with `psql` and create the databases needed defined in your `.env` file. Also log on to your MongoDB server and create the databases needed defined in your `.env` file as well.
-
-    For example, if the quests database is named `quests`, then create the DB as follows:
-
-    ```sql
-    CREATE DATABASE quests;
+    ```bash
+    sudo docker compose up -d
     ```
 
-6. Now you can just run the docker compose stack
+4. Invite your bot into your server of choice, and have fun!
 
-    ```sh
-    sudo docker-compose up -d
-    ```
+5. (Optional) Check the logs of the container to make sure that nothing went wrong.

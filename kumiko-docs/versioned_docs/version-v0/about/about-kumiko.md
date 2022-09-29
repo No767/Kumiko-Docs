@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # About Kumiko
 
-Kumiko is a multipurpose Discord bot built on top of [Rin](https://rinbot.live/), and provides freedom and control over such services. Kumiko currently has 15+ services integrated, and is ready to use. Kumiko also has a economy system, and soon to be a web dashboard. Kumiko is designed to be a enterprise-grade bot, and is designed to serve the best possible experience to the user. Being built on top of Rin, Kumiko also focuses on performance. For more info about what services are currently supported, see the [Supported Services](https://docs.rinbot.live/docs/about/supported-services) page from Rin's documentation.
+Kumiko is a multipurpose Discord bot built for freedom in mind. Kumiko currently has 20+ services integrated, and is ready to use. Kumiko also has a economy system, and soon to be a web dashboard. Kumiko is designed to be a enterprise-grade bot, and is designed to serve the best possible experience to the user. Being built on top of Rin, Kumiko also focuses on performance. For more info about what services are currently supported, see the [Supported Services](https://docs.rinbot.live/docs/about/supported-services) page from Rin's documentation.
 
 Note that Kumiko is still in v0, and is still in development stages. Thus Kumiko is not ready for production just yet. Kumiko is also subject to breaking changes in v0.
 

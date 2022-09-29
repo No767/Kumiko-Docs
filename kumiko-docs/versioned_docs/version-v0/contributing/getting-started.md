@@ -13,8 +13,8 @@ To get started, you'll need these things installed:
 
 - [Git](https://git-scm.com/)
 - [Python 3.10](https://www.python.org/)
-- [Pipenv](https://pipenv.pypa.io/en/latest/)
-- [WSL](https://docs.microsoft.com/en-us/windows/wsl/) (If working on Windows)
+- [Poetry](https://python-poetry.org/)
+- [WSL2](https://docs.microsoft.com/en-us/windows/wsl/) (If working on Windows)
 - Discord Account + Discord App
 
 ## Installing Dependencies
@@ -37,15 +37,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 4. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 5. Fork and clone the repo
@@ -78,15 +78,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -115,15 +115,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -159,15 +159,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -194,15 +194,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -237,8 +237,8 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
 
     ```sh
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
@@ -305,7 +305,7 @@ Once you have the discord bot up, there's a few things that needs to be done bef
 2. Now create a shell that pipenv needs. Run the following command:
 
     ```sh
-    pipenv shell
+    poetry shell
     ```
 
 3. To run Kumiko, run the following command:
@@ -404,4 +404,4 @@ Redis_Server_IP_Dev = your ipv4 address
 Redis_Port_Dev = 6379
 ```
 
-Once it is set, now you can use Redis as a cache. Kumiko will write the data from Redis to Postgres once every 5 or 30 minutes. This guarantees data validity and persistence while also going really fast in production thanks to Redis as a caching layer.
+Once it is set, now you can use Redis as a cache. This guarantees data validity and persistence while also going really fast in production thanks to Redis as a caching layer.
