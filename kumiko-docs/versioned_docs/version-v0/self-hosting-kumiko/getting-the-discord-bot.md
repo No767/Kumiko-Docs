@@ -33,3 +33,5 @@ First things first, you'll more than likely need a bot to run Kumiko. Luckily yo
 7. Now click on the copy button and copy the token
 
     ![copytoken](/getting-started-assets/copy-token.png)
+
+8. Now save this into the `.env` file that Kumiko needs to run with

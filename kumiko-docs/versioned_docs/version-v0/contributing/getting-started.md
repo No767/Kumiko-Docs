@@ -261,33 +261,33 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
 
 First things first, you'll more than likely need a dev bot to run Kumiko. Luckily you'll find the steps below to help you on that
 
-![images](/getting-started-assets/create-app.png)
-
 1. Create the app that will be needed for the bot. Once done, you should see the page as shown above
 
-![yesyes](/getting-started-assets/create-bot.png)
+    ![images](/getting-started-assets/create-app.png)
 
 2. Now head done to the bot section, and click on the button that says "Add Bot". 
 
-![ewom](/getting-started-assets/allow-bot.png)
+    ![yesyes](/getting-started-assets/create-bot.png)
 
 3. You'll see a pop-up that asks you if you want to create the bot. 
-
-![intents](/getting-started-assets/allow-intents.png)
+    
+    ![ewom](/getting-started-assets/allow-bot.png)
 
 4. Make sure to have all 3 of the buttons enabled. Kumiko will need all 3 of them to work.
 
-![whyyy](/getting-started-assets/reset-token.png)
+    ![intents](/getting-started-assets/allow-intents.png)
 
 5. You'll see a page just like the one above. We'll need access the the token for the bot, and the only way to do it is to reset the token.
 
-![confirm](/getting-started-assets/allow-reset-token.png)
+    ![whyyy](/getting-started-assets/reset-token.png)
 
 6. Allow for the token to be reset. Note that if your account is hooked up with 2FA, it will ask you to enter your 2FA code. Go to your authenticator app and enter the code from the app.
 
-![copytoken](/getting-started-assets/copy-token.png)
+    ![confirm](/getting-started-assets/allow-reset-token.png)
 
 7. Now click on the copy button and copy the token
+
+    ![copytoken](/getting-started-assets/copy-token.png)
 
 8. Head back into the root directory of the repo, and run this command: 
 
