@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Getting Started
@@ -13,8 +13,8 @@ To get started, you'll need these things installed:
 
 - [Git](https://git-scm.com/)
 - [Python 3.10](https://www.python.org/)
-- [Pipenv](https://pipenv.pypa.io/en/latest/)
-- [WSL](https://docs.microsoft.com/en-us/windows/wsl/) (If working on Windows)
+- [Poetry](https://python-poetry.org/)
+- [WSL2](https://docs.microsoft.com/en-us/windows/wsl/) (If working on Windows)
 - Discord Account + Discord App
 
 ## Installing Dependencies
@@ -37,15 +37,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 4. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 5. Fork and clone the repo
@@ -78,15 +78,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -115,15 +115,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -159,15 +159,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -194,15 +194,15 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
     ```sh
     curl https://pyenv.run | bash
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
 3. Restart your shell (make sure you have added it to your path and configured it either in your `.zshrc`, or `.bashrc` files)
     
     ```sh
-    exec "$SHELL"
+    exec $SHELL
     ```
 
 4. Fork and clone the repo
@@ -237,8 +237,8 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
 
     ```sh
     pyenv update
-    pyenv install 3.10.5
-    pyenv global 3.10.5
+    pyenv install 3.10.7
+    pyenv global 3.10.7
     pyenv rehash
     ```
 
@@ -261,33 +261,33 @@ Getting the environment set up for the bot is a kinda complex process. If you wa
 
 First things first, you'll more than likely need a dev bot to run Kumiko. Luckily you'll find the steps below to help you on that
 
-![images](/getting-started-assets/create-app.png)
-
 1. Create the app that will be needed for the bot. Once done, you should see the page as shown above
 
-![yesyes](/getting-started-assets/create-bot.png)
+    ![images](/getting-started-assets/create-app.png)
 
 2. Now head done to the bot section, and click on the button that says "Add Bot". 
 
-![ewom](/getting-started-assets/allow-bot.png)
+    ![yesyes](/getting-started-assets/create-bot.png)
 
 3. You'll see a pop-up that asks you if you want to create the bot. 
-
-![intents](/getting-started-assets/allow-intents.png)
+    
+    ![ewom](/getting-started-assets/allow-bot.png)
 
 4. Make sure to have all 3 of the buttons enabled. Kumiko will need all 3 of them to work.
 
-![whyyy](/getting-started-assets/reset-token.png)
+    ![intents](/getting-started-assets/allow-intents.png)
 
 5. You'll see a page just like the one above. We'll need access the the token for the bot, and the only way to do it is to reset the token.
 
-![confirm](/getting-started-assets/allow-reset-token.png)
+    ![whyyy](/getting-started-assets/reset-token.png)
 
 6. Allow for the token to be reset. Note that if your account is hooked up with 2FA, it will ask you to enter your 2FA code. Go to your authenticator app and enter the code from the app.
 
-![copytoken](/getting-started-assets/copy-token.png)
+    ![confirm](/getting-started-assets/allow-reset-token.png)
 
 7. Now click on the copy button and copy the token
+
+    ![copytoken](/getting-started-assets/copy-token.png)
 
 8. Head back into the root directory of the repo, and run this command: 
 
@@ -305,7 +305,7 @@ Once you have the discord bot up, there's a few things that needs to be done bef
 2. Now create a shell that pipenv needs. Run the following command:
 
     ```sh
-    pipenv shell
+    poetry shell
     ```
 
 3. To run Kumiko, run the following command:
@@ -404,4 +404,4 @@ Redis_Server_IP_Dev = your ipv4 address
 Redis_Port_Dev = 6379
 ```
 
-Once it is set, now you can use Redis as a cache. Kumiko will write the data from Redis to Postgres once every 5 or 30 minutes. This guarantees data validity and persistence while also going really fast in production thanks to Redis as a caching layer.
+Once it is set, now you can use Redis as a cache. This guarantees data validity and persistence while also going really fast in production thanks to Redis as a caching layer.

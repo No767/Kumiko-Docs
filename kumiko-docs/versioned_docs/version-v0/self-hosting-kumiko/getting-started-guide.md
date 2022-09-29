@@ -15,12 +15,9 @@ Kumiko is currently in v0 as of writing this. This means that the instructions f
 
 ## Requirements
 
-- [Python 3.10](https://www.python.org/)
-- [Poetry](https://python-poetry.org/)
 - [Docker](https://www.docker.com/)
-- [Git](https://git-scm.com/)
-- psql or pgAdmin4
-- mongosh or MongoDBCompass
+- [Docker Compose](https://docs.docker.com/compose/)
+- cURL or wget
 
 If using the standalone method:
 
@@ -28,69 +25,76 @@ If using the standalone method:
 - [MongoDB](https://www.mongodb.com/)
 - [Redis](https://redis.io/)
 - [RabbitMQ](https://www.rabbitmq.com/)
+- psql
+- monogosh
 
-If using the Docker Compose method:
+## Docker CLI (Standalone)
 
-- [Docker Compose](https://docs.docker.com/compose/)
+1. Pull the latest production build from either GHCR or Docker Hub
 
-## Standalone
-
-1. Clone the repo
-
-    ```sh
-    git clone https://github.com/No767/Kumiko.git
+    GHCR: 
+    ```bash
+    docker pull ghcr.io/no767/kumiko:latest
     ```
 
-2. Rename the `.env-docker-example` file to `.env`
-
-3. If you haven't, now start changing the values from the `.env` file to match the credentials that you are going to be using. You'll need to adjust the credentials for Postgres, MongoDB, Redis, and RabbitMQ. 
-
-4. Log into your PostgreSQL server with `psql` and create the databases needed defined in your `.env` file. Also log on to your MongoDB server and create the databases needed defined in your `.env` file as well.
-
-    For example, if the quests database is named `quests`, then create the DB as follows:
-    
-    ```sql
-    CREATE DATABASE quests;
+    Docker Hub:
+    ```bash
+    docker pull no767/kumiko:latest
     ```
 
-5. Now you can run the bot. Use the `.env` file to read out the environment variables as needed. 
+2. Download the example docker env file and standalone-setup script. This is the file where you'll put all of your env and credentials in
 
-    ```sh
-    sudo docker run -d --env-file=.env --restart=always --name=Kumiko no767/kumiko:edge
+    curl:
+
+    ```bash
+    curl -o .env https://raw.githubusercontent.com/No767/Kumiko/dev/.env-docker-example \
+    && curl -o standalone-setup.sh https://raw.githubusercontent.com/No767/Kumiko/dev/standalone-setup.sh \
+    && chmod +x standalone-setup.sh
     ```
 
-    :::note
-    
-    You could also use the `-e` flag, but that would take way too long. The `.env` file is the same as the one adjusted in step 3
-    
-    :::
+    wget:
 
-6. Once ran, Kumiko will go ahead and create the tables as needed. Kumiko will also output any logs, so make sure to check the logs in the container to make sure everything is going fine.
+    ```bash
+    wget -O .env https://raw.githubusercontent.com/No767/Kumiko/dev/.env-docker-example \
+    && wget -O standalone-setup.sh https://raw.githubusercontent.com/No767/Kumiko/dev/standalone-setup.sh \
+    && chmod +x standalone-setup.sh
+    ```
 
+3. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](./api-keys-and-access-tokens.md).
+
+4. To set up all of the data, all we need to do is to run a script to set that up.
+
+    ```bash
+    env $(grep -v '^#' .env | xargs) ./standalone-setup.sh
+    ```
+
+5. Now it's time to run Kumiko. Just run this command to run the bot:
+
+    ```bash
+    sudo docker run -d --restart=always --env-file=.env --name Kumiko no767/kumiko:latest
+    ```
+
+  :::note You don't need `sudo` on windows
+
+  Note that on windows, you don't need to run it with the `sudo` command
+
+  :::
 ## Docker Compose
 
-1. Clone the repo
+1. Download the `.env` file and `docker-compose.yml` file via the `setup.sh` script
 
-    ```sh
-    git clone https://github.com/No767/Kumiko.git
+    ```bash
+    curl -s https://raw.githubusercontent.com/No767/Kumiko/dev/scripts/setup.sh | sh
     ```
 
-2. Rename the `.env-docker-example` file to `.env` and the `docker-compose-example.yml` to `docker-compose.yml`
+2. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](./api-keys-and-access-tokens.md).
 
-3. Start the Docker Compose up without Kumiko. Just comment out those lines if you are setting up Kumiko for the first time.
+3. Once everything is set, literally just fire up the whole entire docker compose stack. All of the database creation, and seeding of the data will be handled automatically
 
-4. Update the `.env` file with the correct values, and also set the correct passwords and users for Postgres, MongoDB, and RabbitMQ.
-
-5. Log into your PostgreSQL server with `psql` and create the databases needed defined in your `.env` file. Also log on to your MongoDB server and create the databases needed defined in your `.env` file as well.
-
-    For example, if the quests database is named `quests`, then create the DB as follows:
-
-    ```sql
-    CREATE DATABASE quests;
+    ```bash
+    sudo docker compose up -d
     ```
 
-6. Now you can just run the docker compose stack
+4. Invite your bot into your server of choice, and have fun!
 
-    ```sh
-    sudo docker-compose up -d
-    ```
+5. (Optional) Check the logs of the container to make sure that nothing went wrong.
