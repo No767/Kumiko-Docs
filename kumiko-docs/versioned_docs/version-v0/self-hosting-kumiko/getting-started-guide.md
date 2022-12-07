@@ -7,6 +7,11 @@ sidebar_position: 2
 
 Kumiko can now be self-hosted. You can self host your own version of Kumiko now. There are 2 ways to self host Kumiko: Standalone (Docker CLI) or with Docker Compose
 
+:::info Using Docker Compose is recommended
+
+Kumiko has 2 methods for self hosting. Using Docker Compose is recommended instead due to the ease of use when hosting. Other options may also be used but only if you know you already have hosting for the rest of the needed services (Redis, PostgreSQL, and MongoDB)
+
+:::
 :::caution Kumiko is still in alpha stages
 
 Kumiko is currently in v0 as of writing this. This means that the instructions for self-hosting may not work, and might be different than the ones written here
@@ -19,14 +24,11 @@ Kumiko is currently in v0 as of writing this. This means that the instructions f
 - [Docker Compose](https://docs.docker.com/compose/)
 - cURL or wget
 
-If using the standalone method:
+If using the standalone method (and all of the client tools as needed):
 
 - [PostgreSQL](https://www.postgresql.org/)
 - [MongoDB](https://www.mongodb.com/)
 - [Redis](https://redis.io/)
-- [RabbitMQ](https://www.rabbitmq.com/)
-- psql
-- monogosh
 
 ## Docker CLI (Standalone)
 
