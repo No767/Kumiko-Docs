@@ -2,7 +2,9 @@
 
 # Kumiko-Docs
 
-![Kumiko](./assets/kumiko-resized.jpg)
+![Kumiko](https://raw.githubusercontent.com/No767/Kumiko/dev/assets/kumiko-resized-round.svg)
+
+![GitHub deployments](https://img.shields.io/github/deployments/No767/Kumiko-Docs/production?label=Vercel&logo=vercel) ![GitHub](https://img.shields.io/github/license/No767/Kumiko-Docs?label=License&logo=github)
 
 The Official Documentation for Kumiko
 
