@@ -1,32 +1,30 @@
 ---
-title: Getting Started Guide
-sidebar_position: 2
+title: Manual Deployment
+sidebar_position: 3
 ---
 
-# Getting Started Guide
+# Manual Deployment
 
-Kumiko can now be self-hosted. You can self host your own version of Kumiko now. There are 2 ways to self host Kumiko: Standalone (Docker CLI) or with Docker Compose
+There are 2 ways to host Kumiko: Standalone (Docker CLI) or with Docker Compose
 
-:::caution Kumiko is still in alpha stages
+:::info Using Docker Compose is recommended
 
-Kumiko is currently in v0 as of writing this. This means that the instructions for self-hosting may not work, and might be different than the ones written here
+Kumiko has 2 methods for manual deployment. Using Docker Compose is recommended instead due to the ease of use when hosting. Other options may also be used but only if you know you already have hosting for the rest of the needed services (Redis, PostgreSQL, and MongoDB)
 
 :::
 
 ## Requirements
 
 - [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
-- cURL or wget
+- [`cURL`](https://curl.se/) or [`wget`](https://www.gnu.org/software/wget/)
 
-If using the standalone method:
+### Additional Standalone Requirements
+
+If using the standalone method (and all of the client tools as needed):
 
 - [PostgreSQL](https://www.postgresql.org/)
 - [MongoDB](https://www.mongodb.com/)
 - [Redis](https://redis.io/)
-- [RabbitMQ](https://www.rabbitmq.com/)
-- psql
-- monogosh
 
 ## Docker CLI (Standalone)
 
@@ -41,6 +39,12 @@ If using the standalone method:
     ```bash
     docker pull no767/kumiko:latest
     ```
+
+    :::tip Always use the Debian based images
+
+    One of the big things that will help is using the Debian based images. These are the normal version tags, and are also appended with the `-bullseye` tag. These often will be a bit bulkier, but offer better performance and stability compared to the Alpine based images.
+
+    :::
 
 2. Download the example docker env file and standalone-setup script. This is the file where you'll put all of your env and credentials in
 
@@ -60,7 +64,7 @@ If using the standalone method:
     && chmod +x standalone-setup.sh
     ```
 
-3. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](./api-keys-and-access-tokens.md).
+3. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](../environment-setup/api-keys-and-access-tokens.md).
 
 4. To set up all of the data, all we need to do is to run a script to set that up.
 
@@ -87,7 +91,7 @@ If using the standalone method:
     curl -s https://raw.githubusercontent.com/No767/Kumiko/dev/scripts/setup.sh | sh
     ```
 
-2. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](./api-keys-and-access-tokens.md).
+2. Obtain the API keys, access tokens, discord bot token, and database credentials for Kumiko. Open up the `.env` file with an editor like Vim and add the needed values. Refer to the list of API keys and tokens [here](../environment-setup/api-keys-and-access-tokens.md).
 
 3. Once everything is set, literally just fire up the whole entire docker compose stack. All of the database creation, and seeding of the data will be handled automatically
 
@@ -96,5 +100,3 @@ If using the standalone method:
     ```
 
 4. Invite your bot into your server of choice, and have fun!
-
-5. (Optional) Check the logs of the container to make sure that nothing went wrong.

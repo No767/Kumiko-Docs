@@ -34,4 +34,4 @@ First things first, you'll more than likely need a bot to run Kumiko. Luckily yo
 
     ![copytoken](/getting-started-assets/copy-token.png)
 
-8. Now save this into the `.env` file that Kumiko needs to run with
+8. Now save this into the `.env` file that Kumiko needs to run with. For folks self hosting Kumiko, the `.env` file will be located within the folder where you decided to set up everything. For folks who are interested in developing Kumiko, you'll need to save this to `Bot/.env`.
