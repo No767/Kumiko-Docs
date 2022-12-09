@@ -9,11 +9,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Kumiko Docs',
   tagline: 'The Official Documentation for Kumiko',
-  url: 'https://docs.kumiko-bot.tech',
+  url: 'https://kumiko-docs.vercel.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'kumiko-resized.jpg',
+  favicon: 'kumiko-rounded-resized.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -38,7 +38,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/No767/Kumiko-Docs/tree/master/kumiko-docs',
+            'https://github.com/No767/Kumiko-Docs/tree/dev/kumiko-docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
