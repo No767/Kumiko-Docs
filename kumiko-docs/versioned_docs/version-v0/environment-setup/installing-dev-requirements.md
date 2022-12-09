@@ -1,16 +1,16 @@
 ---
-title: Installing Development Requirements
+title: Installing Dev Requirements
 sidebar_position: 2
 ---
 
-# Installing Development Requirements
+# Installing Dev Requirements
 
 ## Requirements
 
 In order to get started, you'll need some tools installed:
 
 - [Git](https://git-scm.com)
-- [Python 3](https://python.org)
+- [Python 3](https://python.org) (Python 3.8, 3.9, 3.10, and 3.11 are officially supported)
 - [Poetry](https://python-poetry.org/)
 - [Docker](https://docker.com)
 - [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) (If working on windows)
@@ -19,6 +19,8 @@ In order to get started, you'll need some tools installed:
 :::info Use Linux when developing Kumiko
 
 Kumiko is developed on Linux. This means that you must have a good understanding on how to use Linux in the terminal. It is recommended to use Ubuntu to start with, but more advanced users may feel more comfortable with other distros such as OpenSUSE Tumbleweed or Arch. If you are using Windows, you must use WSL2.
+
+:::
 
 :::caution OpenSSL 1.1 is needed
 
@@ -76,7 +78,7 @@ The reason why Kumiko has to be developed on Linux is due to the maintainers of 
     
 ### Ubuntu
 
-:::info `uvloop` requires OpenSSL 1.1
+:::caution `uvloop` requires OpenSSL 1.1
 
 `uvloop` requires the `libssl-dev` package. On Ubuntu 22.04, this will install OpenSSL 3.0 instead of OpenSSL 1.1. You'll need to use a backport version of Ubuntu's repos (focal) in order to get access to OpenSSL 1.1. Refer to https://stackoverflow.com/questions/72133316/ubuntu-22-04-libssl-so-1-1-cannot-open-shared-object-file-no-such-file-or-di for more info
 

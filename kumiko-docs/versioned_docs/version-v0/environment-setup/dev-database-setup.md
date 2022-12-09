@@ -1,9 +1,9 @@
 ---
-title: Database Setup
+title: Dev Database Setup
 sidebar_position: 3
 ---
 
-# Database Setup
+# Dev Database Setup
 
 Kumiko requires PostgreSQL, MongoDB and Redis to get started. 
 
