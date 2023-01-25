@@ -27,10 +27,6 @@ When you get to the variables that refer to the host, this is referring to the h
 Kumiko's Economy requires PostgreSQL first. The easiest way to do so is to use PostgreSQL on Docker. You can find instructions on how to do this [here](https://hub.docker.com/_/postgres). When making the password, please don't include anything with `@` in it. Asyncpg will complain about it and not connect to the database. Next look at the `.env` file now in your `Bot` directory. Edit the values for the PostgreSQL section, and make sure to keep the `Postgres_Username` and `Postgres_Kumiko_Database` with the same values. This is not needed, but good practice to do so. 
 
 
-## MongoDB Setup
-
-Kumiko's Economy (specifically the marketplace) relies on MongoDB to deal with the database storage. And the easiest way to deal with that is to use MongoDB on Docker (Image can be found [here](https://hub.docker.com/_/mongo)). When making the password, please don't include anything with `@` in it. Beanie may also start complaining about special characters and then refuses to connect because of it (also blame MongoDB for that as well). Next look at the `.env` file now in your `Bot` directory. Edit the values for the MongoDB section., and save the file
-
 ## Redis Setup
 
 Kumiko also relies on Redis for parts of the Auction House, and for general caching. And you guessed it, the easiest way to run Redis is on Docker. You can find the image [here](https://hub.docker.com/_/redis). Look at the `.env` file now in your `Bot` directory. Edit the values for the Redis section, and save the file
