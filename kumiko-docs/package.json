@@ -38,7 +38,7 @@
     ]
   },
   "devDependencies": {
-    "@algolia/client-search": "4.15.0",
+    "@algolia/client-search": "4.16.0",
     "@docusaurus/module-type-aliases": "2.3.1",
     "@tsconfig/docusaurus": "1.0.7",
     "typescript": "5.0.2"
