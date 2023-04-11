@@ -12,10 +12,8 @@ In order to get started, you'll need some tools installed:
 - [Git](https://git-scm.com)
 - [Python 3](https://python.org) (Python 3.8, 3.9, 3.10, and 3.11 are officially supported)
 - [Poetry](https://python-poetry.org/)
-- [Pyenv](https://github.com/pyenv/pyenv) (Optional, Recommended)
 - [Docker](https://docker.com)
 - [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) (If working on windows)
-- [Docker](https://www.docker.com/) (Use [Docker Engine](https://docs.docker.com/engine/) on Linux, [Docker Desktop](https://www.docker.com/products/docker-desktop/) on Windows/WSL2, MacOS and Linux (beta))
 - Discord Account + Discord App
 
 
@@ -45,7 +43,7 @@ openssl-devel opus-devel opus curl wget git
 
 ```sh
 sudo dnf install make automake gcc gcc-c++ kernel-devel \
-libffi-devel python3-libnacl python3.10-devel openssl11-devel \
+libffi-devel python3-libnacl python3.11-devel openssl11-devel \
 openssl-devel opus opus-devel curl wget git
 ```
 
@@ -53,7 +51,7 @@ openssl-devel opus opus-devel curl wget git
 
 ```sh
 sudo zypper install gcc make automake openssl-devel openssl-1_1  \
-libffi-devel python310-devel python310-libnacl opus libopus0 wget git curl
+libffi-devel python311-devel python311-libnacl opus libopus0 wget git curl
 ```
 
 ### Arch
