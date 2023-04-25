@@ -20,8 +20,8 @@ dependencies:
     specifier: 1.2.1
     version: 1.2.1
   prism-react-renderer:
-    specifier: 2.0.0
-    version: 2.0.0(react@18.2.0)
+    specifier: 2.0.1
+    version: 2.0.1(react@18.2.0)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -2712,6 +2712,10 @@ packages:
 
   /@types/parse5@5.0.3:
     resolution: {integrity: sha512-kUNnecmtkunAoQ3CnjmMkzNU/gtxG8guhi+Fk2U/kOpIKjIMKnXGp4IJCgQJrXSgMsWYimYG4TGjz/UzbGEBTw==}
+    dev: false
+
+  /@types/prismjs@1.26.0:
+    resolution: {integrity: sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ==}
     dev: false
 
   /@types/prop-types@15.7.5:
@@ -6473,11 +6477,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /prism-react-renderer@2.0.0(react@18.2.0):
-    resolution: {integrity: sha512-Pmgn/6/XaxmwSuC5InkPQ3xq7f1J/SMKdvnxAQZVE7oBH11ctIHBGc2xLWmc8g0/CG+YQwbi5JTifP01cR7kvA==}
+  /prism-react-renderer@2.0.1(react@18.2.0):
+    resolution: {integrity: sha512-GQ825VzLSRbKWqYHd3JFhnXzJ6qzAMiMUStxcB5IzKbuZjmL0ir+Tzldb3pA8JuyoqzeFtRWG4emLvuQww5SIA==}
     peerDependencies:
       react: '>=16.0.0'
     dependencies:
+      '@types/prismjs': 1.26.0
       clsx: 1.2.1
       react: 18.2.0
     dev: false
